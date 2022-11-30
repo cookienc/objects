@@ -8,14 +8,7 @@ public class TicketSeller {
     }
 
     public void sellTo(final Audience audience) {
-        if (audience.getBag().hasInvitation()) {
-            final Ticket ticket = ticketOffice.getTicket();
-            audience.getBag().setTicket(ticket);
-        } else {
-            final Ticket ticket = ticketOffice.getTicket();
-            audience.getBag().minusAmount(ticket.getFee());
-            ticketOffice.plusAmount(ticket.getFee());
-            audience.getBag().setTicket(ticket);
-        }
+        final Long ticketPrice = audience.buy(ticketOffice.getTicket());
+        ticketOffice.plusAmount(ticketPrice);
     }
 }
