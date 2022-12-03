@@ -18,8 +18,8 @@ public class Reservation {
     public Customer getCustomer() {
         return customer;
     }
-
     public void setCustomer(final Customer customer) {
+
         this.customer = customer;
     }
 
