@@ -9,7 +9,7 @@ public class Movie {
     private String title;
     private Duration runningTime;
     private Money fee;
-    private List<DiscountConditions> discountConditions;
+    private List<DiscountCondition> discountConditions;
 
     private MovieType movieType;
     private Money discountAmount;
