@@ -1,6 +1,6 @@
 package practice.objects.movie;
 
-public class PercentDiscountPolicy extends DefaultDiscountPolicy {
+public class PercentDiscountPolicy extends DiscountPolicy {
     private double percent;
 
     public PercentDiscountPolicy(final double percent, final DiscountCondition... conditions) {

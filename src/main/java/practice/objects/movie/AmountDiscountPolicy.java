@@ -1,6 +1,6 @@
 package practice.objects.movie;
 
-public class AmountDiscountPolicy extends DefaultDiscountPolicy {
+public class AmountDiscountPolicy extends DiscountPolicy {
     private Money discountAmount;
 
     public AmountDiscountPolicy(final Money discountAmount, final DiscountCondition... conditions) {
