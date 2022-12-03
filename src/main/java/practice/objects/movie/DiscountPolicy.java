@@ -21,5 +21,5 @@ public abstract class DiscountPolicy {
         return Money.ZERO;
     }
 
-    abstract protected Money getDiscountAmount(final Screening screening);
+    protected abstract Money getDiscountAmount(final Screening screening);
 }
