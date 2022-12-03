@@ -1,4 +1,4 @@
-package practice.objects.ticketing;
+package practice.objects.movie.dataPriority;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;

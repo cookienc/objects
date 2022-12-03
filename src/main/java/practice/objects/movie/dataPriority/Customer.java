@@ -1,4 +1,4 @@
-package practice.objects.ticketing;
+package practice.objects.movie.dataPriority;
 
 public class Customer {
     private String name;

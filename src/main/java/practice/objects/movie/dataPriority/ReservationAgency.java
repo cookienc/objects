@@ -1,4 +1,4 @@
-package practice.objects.ticketing;
+package practice.objects.movie.dataPriority;
 
 import practice.objects.movie.Money;
 

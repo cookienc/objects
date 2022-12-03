@@ -1,4 +1,4 @@
-package practice.objects.ticketing;
+package practice.objects.movie.dataPriority;
 
 public enum MovieType {
     AMOUNT_DISCOUNT,
