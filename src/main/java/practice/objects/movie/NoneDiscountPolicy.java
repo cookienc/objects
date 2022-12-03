@@ -1,8 +1,8 @@
 package practice.objects.movie;
 
-public class NoneDiscountPolicy extends DiscountPolicy {
+public class NoneDiscountPolicy implements DiscountPolicy {
     @Override
-    protected Money getDiscountAmount(final Screening screening) {
+    public Money calculateDiscountAmount(final Screening screening) {
         return Money.ZERO;
     }
 }
