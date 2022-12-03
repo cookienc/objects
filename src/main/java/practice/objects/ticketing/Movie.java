@@ -1,5 +1,7 @@
 package practice.objects.ticketing;
 
+import practice.objects.movie.Money;
+
 import java.time.Duration;
 import java.util.Collections;
 import java.util.List;
