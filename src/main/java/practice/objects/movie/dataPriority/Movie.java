@@ -3,7 +3,7 @@ package practice.objects.movie.dataPriority;
 import practice.objects.movie.Money;
 
 import java.time.Duration;
-import java.util.Collections;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Movie {
@@ -16,43 +16,47 @@ public class Movie {
     private Money discountAmount;
     private double discountPercent;
 
-    public Money getFee() {
-        return fee;
-    }
-
-    public void setFee(final Money fee) {
-        this.fee = fee;
-    }
-
-    public List<DiscountCondition> getDiscountConditions() {
-        return Collections.unmodifiableList(discountConditions);
-    }
-
-    public void setDiscountConditions(final List<DiscountCondition> discountConditions) {
-        this.discountConditions = discountConditions;
-    }
-
     public MovieType getMovieType() {
         return movieType;
     }
 
-    public void setMovieType(final MovieType movieType) {
-        this.movieType = movieType;
+    public Money calculateAmountDiscountedFee() {
+        if (movieType == MovieType.AMOUNT_DISCOUNT) {
+            throw new IllegalArgumentException();
+        }
+
+        return fee.minus(discountAmount);
     }
 
-    public Money getDiscountAmount() {
-        return discountAmount;
+    public Money calculatePercentDiscountedFee() {
+        if (movieType == MovieType.AMOUNT_DISCOUNT) {
+            throw new IllegalArgumentException();
+        }
+
+        return fee.minus(fee.times(discountPercent));
     }
 
-    public void setDiscountAmount(final Money discountAmount) {
-        this.discountAmount = discountAmount;
+    public Money calculateNoneDiscountedFee() {
+        if (movieType == MovieType.NONE_DISCOUNT) {
+            throw new IllegalArgumentException();
+        }
+
+        return fee;
     }
 
-    public double getDiscountPercent() {
-        return discountPercent;
-    }
+    public boolean isDiscountable(final LocalDateTime whenScreened, final int sequence) {
+        for (DiscountCondition condition : discountConditions) {
+            if (condition.getType() == DiscountConditionType.PERIOD) {
+                if (condition.isDiscountable(whenScreened.getDayOfWeek(), whenScreened.toLocalTime())) {
+                    return true;
+                }
+            } else {
+                if (condition.isDiscountable(sequence)) {
+                    return true;
+                }
+            }
+        }
 
-    public void setDiscountPercent(final double discountPercent) {
-        this.discountPercent = discountPercent;
+        return false;
     }
 }
