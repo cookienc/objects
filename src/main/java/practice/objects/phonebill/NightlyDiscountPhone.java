@@ -3,28 +3,35 @@ package practice.objects.phonebill;
 import practice.objects.Money;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
-public class NightlyDiscountPhone extends Phone {
+public class NightlyDiscountPhone {
     private static final int LATE_NIGHT_HOUR = 22;
 
     private Money nightlyAmount;
+    private Money regularAmount;
+    private Duration seconds;
+    private List<Call> calls = new ArrayList<>();
 
-    public NightlyDiscountPhone(final Money amount, final Duration seconds, final Money nightlyAmount) {
-        super(amount, seconds);
+    public NightlyDiscountPhone(final Money nightlyAmount, final Money regularAmount,
+                                final Duration seconds) {
         this.nightlyAmount = nightlyAmount;
+        this.regularAmount = regularAmount;
+        this.seconds = seconds;
     }
 
-    @Override
     public Money calculateFee() {
-        final Money result = super.calculateFee();
+        Money result = Money.ZERO;
 
-        Money nightlyFee = Money.ZERO;
-        for (Call call : getCalls()) {
+        for (Call call : calls) {
             if (call.getFrom().getHour() >= LATE_NIGHT_HOUR) {
-                nightlyFee = nightlyFee.plus(
-                        getAmount().minus(nightlyAmount).times(
-                                call.getDuration().getSeconds() / getSeconds().getSeconds()
-                        )
+                result = result.plus(
+                        nightlyAmount.times(call.getDuration().getSeconds() / seconds.getSeconds())
+                );
+            } else {
+                result = result.plus(
+                        regularAmount.times(call.getDuration().getSeconds() / seconds.getSeconds())
                 );
             }
         }
