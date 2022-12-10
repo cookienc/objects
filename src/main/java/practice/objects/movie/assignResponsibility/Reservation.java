@@ -1,6 +1,6 @@
 package practice.objects.movie.assignResponsibility;
 
-import practice.objects.movie.Money;
+import practice.objects.Money;
 import practice.objects.movie.dataPriority.Customer;
 
 public class Reservation {

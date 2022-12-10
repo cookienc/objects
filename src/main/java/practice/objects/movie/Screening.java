@@ -1,5 +1,7 @@
 package practice.objects.movie;
 
+import practice.objects.Money;
+
 import java.time.LocalDateTime;
 
 public class Screening {

@@ -1,5 +1,7 @@
 package practice.objects.movie;
 
+import practice.objects.Money;
+
 public class Reservation {
     private Customer customer;
     private Screening screening;

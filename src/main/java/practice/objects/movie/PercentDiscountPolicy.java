@@ -1,5 +1,7 @@
 package practice.objects.movie;
 
+import practice.objects.Money;
+
 public class PercentDiscountPolicy extends DiscountPolicy {
     private double percent;
 

@@ -1,4 +1,4 @@
-package practice.objects.movie;
+package practice.objects;
 
 import java.math.BigDecimal;
 

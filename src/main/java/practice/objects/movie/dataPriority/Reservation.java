@@ -1,6 +1,6 @@
 package practice.objects.movie.dataPriority;
 
-import practice.objects.movie.Money;
+import practice.objects.Money;
 
 public class Reservation {
     private Customer customer;

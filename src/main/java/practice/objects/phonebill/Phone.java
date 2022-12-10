@@ -1,6 +1,6 @@
 package practice.objects.phonebill;
 
-import practice.objects.movie.Money;
+import practice.objects.Money;
 
 import java.time.Duration;
 import java.util.ArrayList;

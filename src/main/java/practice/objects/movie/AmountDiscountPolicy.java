@@ -1,5 +1,7 @@
 package practice.objects.movie;
 
+import practice.objects.Money;
+
 public class AmountDiscountPolicy extends DiscountPolicy {
     private Money discountAmount;
 
