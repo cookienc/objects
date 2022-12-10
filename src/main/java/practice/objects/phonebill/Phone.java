@@ -2,27 +2,21 @@ package practice.objects.phonebill;
 
 import practice.objects.Money;
 
-import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Phone extends AbstractPhone {
-    private Money amount;
-    private Duration seconds;
+public abstract class Phone {
+    private List<Call> calls = new ArrayList<>();
 
-    public Phone(final Money amount, final Duration seconds) {
-        this.amount = amount;
-        this.seconds = seconds;
+    public Money calculateFee() {
+        Money result = Money.ZERO;
+
+        for (Call call : calls) {
+            result = result.plus(calculateCallFee(call));
+        }
+
+        return result;
     }
 
-    public Money getAmount() {
-        return amount;
-    }
-
-    public Duration getSeconds() {
-        return seconds;
-    }
-
-    @Override
-    protected Money calculateCallFee(final Call call) {
-        return amount.times(call.getDuration().getSeconds() / seconds.getSeconds());
-    }
+    protected abstract Money calculateCallFee(final Call call);
 }
