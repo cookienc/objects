@@ -6,16 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Phone {
+    private RatePolicy ratePolicy;
     private List<Call> calls = new ArrayList<>();
 
+    public Phone(final RatePolicy ratePolicy) {
+        this.ratePolicy = ratePolicy;
+    }
+
+    public List<Call> getCalls() {
+        return calls;
+    }
+
     public Money calculateFee() {
-        Money result = Money.ZERO;
-
-        for (Call call : calls) {
-            result = result.plus(calculateCallFee(call));
-        }
-
-        return result;
+        return ratePolicy.calculateFee(this);
     }
 
     protected Money afterCalculated(final Money fee) {
