@@ -25,9 +25,4 @@ public class RegularPhone extends Phone {
     protected Money calculateCallFee(final Call call) {
         return amount.times(call.getDuration().getSeconds() / seconds.getSeconds());
     }
-
-    @Override
-    protected Money afterCalculated(final Money fee) {
-        return fee;
-    }
 }
