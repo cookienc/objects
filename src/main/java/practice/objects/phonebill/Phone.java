@@ -20,10 +20,4 @@ public abstract class Phone {
     public Money calculateFee() {
         return ratePolicy.calculateFee(this);
     }
-
-    protected Money afterCalculated(final Money fee) {
-        return fee;
-    }
-
-    protected abstract Money calculateCallFee(final Call call);
 }

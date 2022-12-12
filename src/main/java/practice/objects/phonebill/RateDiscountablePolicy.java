@@ -2,13 +2,11 @@ package practice.objects.phonebill;
 
 import practice.objects.Money;
 
-import java.time.Duration;
-
-public class RateDiscountableRegularPhone extends RegularPhone {
+public class RateDiscountablePolicy extends AdditionalRatePolicy {
     private Money discountAmount;
 
-    public RateDiscountableRegularPhone(final Money amount, final Duration seconds, final Money discountAmount) {
-        super(amount, seconds);
+    public RateDiscountablePolicy(final RatePolicy next, final Money discountAmount) {
+        super(next);
         this.discountAmount = discountAmount;
     }
 
