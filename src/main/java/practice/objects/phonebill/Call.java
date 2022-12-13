@@ -4,19 +4,25 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class Call {
-    private LocalDateTime from;
-    private LocalDateTime to;
+    private DateTimeInterval interval;
 
     public Call(final LocalDateTime from, final LocalDateTime to) {
-        this.from = from;
-        this.to = to;
+        this.interval = DateTimeInterval.of(from, to);
     }
 
     public Duration getDuration() {
-        return Duration.between(from, to);
+        return this.interval.duration();
     }
 
     public LocalDateTime getFrom() {
-        return from;
+        return interval.getFrom();
+    }
+
+    public LocalDateTime getTo() {
+        return interval.getTo();
+    }
+
+    public DateTimeInterval getInterval() {
+        return interval;
     }
 }
