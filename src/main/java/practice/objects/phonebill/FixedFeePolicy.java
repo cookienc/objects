@@ -4,11 +4,11 @@ import practice.objects.Money;
 
 import java.time.Duration;
 
-public class RegularPolicy extends BasicRatePolicy {
+public class FixedFeePolicy extends BasicRatePolicy {
     private Money amount;
     private Duration seconds;
 
-    public RegularPolicy(final Money amount, final Duration seconds) {
+    public FixedFeePolicy(final Money amount, final Duration seconds) {
         this.amount = amount;
         this.seconds = seconds;
     }
